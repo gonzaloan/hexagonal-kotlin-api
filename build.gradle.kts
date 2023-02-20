@@ -10,7 +10,7 @@ plugins {
     application
 }
 
-group = "com.codely"
+group = "com.gonmunoz"
 version = "0.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
