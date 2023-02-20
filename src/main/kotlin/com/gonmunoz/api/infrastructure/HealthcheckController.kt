@@ -8,6 +8,5 @@ import org.springframework.web.bind.annotation.RestController
 class HealthcheckController {
 
     @GetMapping("/health-check")
-    @ResponseBody
     fun execute() = "OK"
 }
