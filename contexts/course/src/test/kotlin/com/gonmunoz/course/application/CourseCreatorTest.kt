@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.time.LocalDateTime
-import java.util.UUID
+import java.util.*
 
 class CourseCreatorTest : BaseTest() {
 
@@ -18,8 +18,7 @@ class CourseCreatorTest : BaseTest() {
     @BeforeEach
     fun setUp(){
         courseRepository = mockk(relaxUnitFun = true)
-        clock = mockk()
-        courseCreator = CourseCreator(courseRepository, clock)
+        courseCreator = CourseCreator(courseRepository)
     }
 
     @Test
@@ -47,7 +46,8 @@ class CourseCreatorTest : BaseTest() {
                 id= CourseId(UUID.fromString(id)) ,
                 name= CourseName(name),
                 createdAt=fixedDate
-            ))
+            )
+            )
         }
     }
     companion object {

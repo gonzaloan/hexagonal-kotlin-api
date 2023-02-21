@@ -1,6 +1,6 @@
 package com.gonmunoz.integration.healthcheck
 
-import com.gonmunoz.shared.Application
+import com.gonmunoz.Application
 import kotlin.test.assertEquals
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
