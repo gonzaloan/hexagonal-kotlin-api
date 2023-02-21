@@ -1,4 +1,4 @@
-package com.gonmunoz.course.domain
+package com.gonmunoz.course.domain.course
 
 sealed class CourseException(override val message: String, override val cause: Throwable? = null) : RuntimeException(message, cause)
 

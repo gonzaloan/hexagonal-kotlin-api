@@ -1,7 +1,7 @@
 package com.gonmunoz.course.application
 
 import com.gonmunoz.course.BaseTest
-import com.gonmunoz.course.domain.*
+import com.gonmunoz.course.domain.course.*
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.jupiter.api.BeforeEach
@@ -18,7 +18,8 @@ class CourseCreatorTest : BaseTest() {
     @BeforeEach
     fun setUp(){
         courseRepository = mockk(relaxUnitFun = true)
-        courseCreator = CourseCreator(courseRepository)
+        clock = mockk()
+        courseCreator = CourseCreator(courseRepository, clock)
     }
 
     @Test
@@ -41,10 +42,11 @@ class CourseCreatorTest : BaseTest() {
     }
     private fun thenTheCourseShouldBeSaved() {
         verify {
-            courseRepository.save(Course.from(
-                id,
-                name,
-                fixedDate
+            courseRepository.save(
+                Course(
+                id= CourseId(UUID.fromString(id)) ,
+                name= CourseName(name),
+                createdAt=fixedDate
             ))
         }
     }

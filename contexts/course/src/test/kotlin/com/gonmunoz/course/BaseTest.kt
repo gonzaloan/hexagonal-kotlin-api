@@ -1,17 +1,16 @@
 package com.gonmunoz.course
 
+import com.gonmunoz.course.domain.Clock
 import io.mockk.every
-import io.mockk.mockkStatic
 import io.mockk.unmockkAll
 import org.junit.jupiter.api.AfterEach
 import java.time.LocalDateTime
 
 open class BaseTest {
-
-    protected fun givenFixedDate(fixedDatetime: LocalDateTime){
-        mockkStatic(LocalDateTime::class)
+    protected lateinit var clock: Clock
+    protected fun givenFixedDate(fixedDatetime: LocalDateTime) {
         every {
-            LocalDateTime.now()
+            clock.now()
         } returns fixedDatetime
     }
 

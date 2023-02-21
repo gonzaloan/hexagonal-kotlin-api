@@ -1,4 +1,4 @@
-package com.gonmunoz.course.domain
+package com.gonmunoz.course.domain.course
 
 interface CourseRepository {
     fun save(course: Course)
